@@ -3,8 +3,8 @@
 
 ### Overview
 In this demo, the following scenario is demonstrated, combining both DMF Data Catalog (WP2) and SkyStore (WP4) for a full data lake behavior:
-1. Starting a DMF data catalog **consumer** in this Jupyter notebook, which subscribes to notifications (MQTT broker) and waits.
-2. Starting a DMF data catalog **producer** (separate window). The producer stores inference data on SkyStore S3-Proxy connected to AWS region eu-centeral-1. Producer uses Nuvla to both write the data and register in the catalog, which sends notification
+1. Starting a DMF data catalog **consumer** in the `wp24.ipynb` Jupyter notebook, which subscribes to notifications (MQTT broker) and waits.
+2. Starting a DMF data catalog **producer** using the `produce.sh` script. The producer stores inference data on SkyStore S3-Proxy connected to AWS region eu-centeral-1. Producer uses Nuvla to both write the data and register in the catalog, which sends notification
 3. The consumer receives the notification and then uses the SkyStore S3-proxy connected to AWS region eu-west-1 to load the data, which causes the data to be propagated to that endpoint.
 4. After loading the data, the consumer uses the inference data to perform inference on a model hosted on K8s service in OVH using KServe.
 5. The inference result is the final output
