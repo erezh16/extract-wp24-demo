@@ -11,7 +11,7 @@ In this demo, the following scenario is demonstrated, combining both DMF Data Ca
    
 ### 0. Pre-requisites
 1. At each setup below, be sure to collect and record all the resulting credentials and environment variables
-2. Deploy the sample PER custom model Inference Service. See the instructions at: https://github.com/revit13/per-demo-sept .
+2. Deploy the sample PER custom model Inference Service. See the instructions at: https://github.com/revit13/per-demo-sept . Make sure to set up port-fordwarding for inference access if needed (i.e., if Istio does not have a public IP ingress already)
 3. Deploy SkyStore on Kubernetes following the instructions in https://github.com/gilv/skystore/blob/headbucket/CONTAINER.md . Note that you need to configure 2 S3-proxies with public access (e.g., `LoadBalancer`), each connected to a different S3 storage - can be a local premise (e.g., Minio/Ceph) or a cloud region (AWS, GCP, Azure, etc)
 4. Deploy an MQTT broker on K8s with public access
 5. Set up a Nuvla account at https://nuvla.io and register the MQTT broker for data notifications on S3 access connected to one of the public S3-proxies you set up at step 2. That S3-proxy will be used for the producer side. The consumer side will use the other S3-proxy. The screenshot below shows an example of registering one S3-proxy in Nuvla: ![S3-proxy in Nuvla](images/s3-proxy-nuvla.png)
